@@ -1,0 +1,23 @@
+{
+  "name": "generate-react-redux-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI to generate react components and create redux store, actions, and reducers",
+  "main": "generate-react-redux.js",
+  "author": "Muhammad Qasim Khan",
+  "license": "MIT",
+  "bin": {
+    "generate-react-redux": "./bin/generate-react-redux.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "clear": "^0.1.0",
+    "commander": "^7.2.0",
+    "deep-keys": "^0.5.0",
+    "figlet": "^1.5.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.1.1",
+    "lodash": "^4.17.21",
+    "replace": "^1.2.1"
+  }
+}
