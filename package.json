@@ -8,6 +8,10 @@
   "bin": {
     "generate-react-redux": "./bin/generate-react-redux.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qasimkhan23/Generate-React-Redux-Cli"
+  },
   "dependencies": {
     "chalk": "^4.1.1",
     "clear": "^0.1.0",
