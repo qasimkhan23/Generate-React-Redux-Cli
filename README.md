@@ -1,1 +1,1 @@
-# Generfate-React-Redux-Cli
+# Generate-React-Redux-Cli
