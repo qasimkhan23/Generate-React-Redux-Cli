@@ -1,6 +1,6 @@
 {
   "name": "generate-react-redux-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple CLI to generate react components and create redux store, actions, and reducers",
   "main": "generate-react-redux.js",
   "author": "Muhammad Qasim Khan",

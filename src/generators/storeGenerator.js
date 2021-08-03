@@ -7,21 +7,33 @@ const chalk = require("chalk");
 function autoImports() {
   if (existsSync(`src/index.js`)) {
     const indexFile = readFileSync(`src/index.js`);
-    var logStream = fs.createWriteStream(`src/index.js`, {
+    var writeEmpty = fs.createWriteStream(`src/index.js`, {
       flags: "w",
     });
+    writeEmpty.write("");
     if (existsSync(`src/store/index.js`)) {
-      logStream.write("\r\n" + `import createStore from "./store"` + "\r\n");
-      logStream.write(
-        "\r\n" + `import { Provider } from "react-redux"` + "\r\n"
-      );
-      logStream.write("\r\n" + `// example` + "\r\n");
-      logStream.write("\r\n" + `// const store = createStore()` + "\r\n");
-      logStream.write(
-        "\r\n" +
+      fs.appendFile(
+        `src/index.js`,
+        `import createStore from "./store"` +
+          "\r\n" +
+          "import { Provider } from 'react-redux'" +
+          "\r\n" +
+          `// example` +
+          "\r\n" +
+          `// const store = createStore()` +
+          "\r\n" +
           `// ReactDOM.render(<Provider store = {store}><App/></Provider>, document.getElementById('root'));` +
-          "\r\n"
+          "\r\n",
+        function (err) {
+          if (err) throw err;
+          console.log("Saved!");
+        }
       );
+
+      var logStreamNew = fs.createWriteStream(`src/index.js`, {
+        flags: "a",
+      });
+      logStreamNew.write("\r\n" + indexFile + "\r\n");
     } else {
       console.error(
         chalk.red.bold(
@@ -32,10 +44,6 @@ function autoImports() {
         chalk.red.bold("Help: import your store file in 'src/index.js' ")
       );
     }
-    var logStreamNew = fs.createWriteStream(`src/index.js`, {
-      flags: "a",
-    });
-    logStreamNew.write("\r\n" + indexFile + "\r\n");
   } else {
     console.error(
       chalk.red.bold("ERROR: Their is not file named index.js in 'src'")
@@ -61,7 +69,7 @@ function storeGenerator(args, program) {
     );
 
   // Component command action.
-
+  console.log("dsadsa");
   storeCommand.action((cmd) => {
     if (!existsSync(`${cmd.path}/index.js`)) {
       outputFileSync(`${cmd.path}/index.js`, storeTemplate);
