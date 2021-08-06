@@ -65,3 +65,7 @@ generate-react-redux c Example -p src/pages/components
 ```bash
 generate-react-redux c Example -p src/pages/components -t class
 ```
+
+## License
+
+[MIT](LICENSE.md)
