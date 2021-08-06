@@ -69,7 +69,6 @@ function storeGenerator(args, program) {
     );
 
   // Component command action.
-  console.log("dsadsa");
   storeCommand.action((cmd) => {
     if (!existsSync(`${cmd.path}/index.js`)) {
       outputFileSync(`${cmd.path}/index.js`, storeTemplate);
